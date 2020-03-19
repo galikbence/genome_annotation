@@ -27,7 +27,7 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
      
      You can find more detailed information in the training manual.
   
-  Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step.
+  Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step. You can find more detailed information reading the AUGUSTUS [tutorial](https://fossies.org/linux/augustus/docs/tutorial/prediction.html#prephints).
   
       Creating hints from RNA-Seq data
       
@@ -50,7 +50,7 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
      
         cat hints.est.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
        
-We can prepare varius gene models and hints file for our genome. We will use these files in Section 5.
+We can prepare various gene models and hints file for our genome. We will use these files in Section 5.
 
   ## 3. Repeat modelling & masking
 
