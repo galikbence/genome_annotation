@@ -12,19 +12,17 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
 
   ## 2. Preparing gene models
   
-  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). 
+  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). The main steps are:
   
      1. COMPILE A SET OF TRAINING AND TEST GENES
-        
-        We will use the data from the section 1. You can find more detailed information in the training manual.
      
      2. CREATE A META PARAMETERS FILE FOR YOUR SPECIES
-     
-      ```
-      We call parameters like the size of the window of the splice site models and the order of the Markov model meta parameters, in contrast to parameters like the distribution of splice site patterns, the k-mer probabilities of coding and noncoding regions. There are a few dozen meta parameters but many thousands of parameters. The meta parameters determine how the parameters are calculated.
-      ```
-     
+      
      3. MAKE AN INITIAL TRAINING
+     
+     4. RUN THE SCRIPT optimize_augustus.pl
+     
+     You can find more detailed information in the training manual.
   
   
 
