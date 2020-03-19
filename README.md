@@ -54,7 +54,31 @@ We can prepare various gene models and hints file for our genome. We will use th
 
   ## 3. Repeat modelling & masking
   
-  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elemetns. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker).
+  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elemetns. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker). The main steps are:
+  
+    1. Create a Database for RepeatModeler
+
+       <RepeatModelerPath>/BuildDatabase -name genome_of_interest genome_of_interest.fa
+
+    2. Run RepeatModeler
+
+       <RepeatModelerPath>/RepeatModeler -database genome_of_interest -pa 20 -LTRStruct >& run.out &
+       
+    3. Interperting the results
+    
+       At the succesful completion of a run, two files are generated:
+         <database_name>-families.fa  : Consensus sequences
+         <database_name>-families.stk : Seed alignments
+         
+    4. Making repeat library
+    
+       <RepeatMaskerPath>/RepeatMasker -lib <database_name>-families.fa mySequence.fa
+       
+    5. Prediction repeats
+    
+       <RepeatMaskerPath>/RepeatMasker -small --species <query species> --lib [filename for custom library] yourgenome.fasta
+  
+  A few gene prediction tool can recogzie masked regions if you genom sequence is upper case and the masked regios is in lower case. Therefore we highly recommend to use `-small` option.
 
   ## 4. Predicting ncRNAs & tRNAs
   
