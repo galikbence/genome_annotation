@@ -79,7 +79,7 @@ We can prepare various gene models and hints file for our genome. We will use th
     
        <RepeatMaskerPath>/RepeatMasker -small -gff --species <query species> --lib [filename for custom library] yourgenome.fasta
   
-  A few gene prediction tool can recogzie masked regions if your genom sequence is upper case and the masked regios are in lower case (specially AUGUSTUS). Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
+  A few gene prediction tool can recogzie masked regions if your genom sequence is upper case and the masked regios are in lower case. Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
   
   Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate FASTA files and you can mask these files parallel. At the and you can simply combine the masked FASTA and GFF files into one.
 
