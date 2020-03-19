@@ -89,6 +89,8 @@ We can prepare various gene models and hints file for our genome. We will use th
 
   ## 4. Predicting ncRNAs & tRNAs
   
+  There are not only protein coding genes in your _genome of interest_. If you want to see the whole picture you should predict __non-coding RNA__ and __tRNA__ coding genes too.
+  
   ## 5. Predicting protein coding genes
 
    ### GeneMark-ES
