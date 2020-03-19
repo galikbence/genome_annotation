@@ -87,15 +87,14 @@ We can prepare various gene models and hints file for our genome. We will use th
   
   Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate FASTA files and you can mask these files parallel. At the and you can simply combine the masked FASTA and GFF files into one.
 
-  ## 4. Predicting ncRNAs & tRNAs
+  ## 4. Predicting tRNAs
   
-  There are not only protein coding genes in your _genome of interest_. If you want to see the whole picture you should predict __non-coding RNA__ and __tRNA__ coding genes too. [tRNAscan-SE](https://github.com/biopro/genix/tree/master/bin/tRNAscan-SE) is one of the best tools for tRNA gene predictions. It is easy to run, fast and it has a [webserver](http://lowelab.ucsc.edu/tRNAscan-SE/).
+  There are not only protein coding genes in your _genome of interest_. If you want to see the whole picture you should predict __tRNA__ coding genes too. [tRNAscan-SE](https://github.com/biopro/genix/tree/master/bin/tRNAscan-SE) is one of the best tools for tRNA gene predictions. It is easy to run, fast and it has a [webserver](http://lowelab.ucsc.edu/tRNAscan-SE/).
   
   Simple usage (see more options in the [manual](https://github.com/biopro/genix/blob/master/bin/tRNAscan-SE/MANUAL)):
   
       tRNAscan-SE [-options] <FASTA file(s)>
-  
-  
+   
   ## 5. Predicting protein coding genes
 
    ### GeneMark-ES
