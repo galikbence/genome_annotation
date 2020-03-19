@@ -50,7 +50,7 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
      
         cat hints.est.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
        
-We can prepare varius gene models and hints file for our genome. 
+We can prepare varius gene models and hints file for our genome. We will use these files in Section 5.
 
   ## 3. Repeat modelling & masking
 
