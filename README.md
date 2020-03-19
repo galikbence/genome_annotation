@@ -75,7 +75,7 @@ We can prepare various gene models and hints file for our genome. We will use th
     
        <RepeatMaskerPath>/RepeatMasker -lib <database_name>-families.fa mySequence.fa
        
-    5. Prediction repeats
+    5. Predicting repeats
     
        <RepeatMaskerPath>/RepeatMasker -small -gff --species <query species> --lib [filename for custom library] yourgenome.fasta
   
