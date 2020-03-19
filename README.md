@@ -1,5 +1,5 @@
 # GENOME ANNOTATION WORKFLOW
-Pipeline for eukaryotic genome annotation based on external evidences using AUGUSTUS and GeneMark-ES gene prediction tools.
+Pipeline for eukaryotic genome annotation based on external evidences using [AUGUSTUS](https://github.com/Gaius-Augustus/Augustus) and [GeneMark-ES](http://exon.gatech.edu/GeneMark/) gene prediction tools.
 #
 
   ## 1. Collecting external evidences
