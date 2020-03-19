@@ -12,7 +12,15 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
 
   ## 2. Preparing gene models
   
-  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html) 
+  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). 
+  
+     1. COMPILE A SET OF TRAINING AND TEST GENES
+        
+        We will use the data from the section 1. You can find more detailed information in the training manual.
+     
+     2. CREATE A META PARAMETERS FILE FOR YOUR SPECIES
+  
+  
 
   ## 3. Repeat modelling & masking
 
