@@ -19,6 +19,12 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
         We will use the data from the section 1. You can find more detailed information in the training manual.
      
      2. CREATE A META PARAMETERS FILE FOR YOUR SPECIES
+     
+      ```
+      We call parameters like the size of the window of the splice site models and the order of the Markov model meta parameters, in contrast to parameters like the distribution of splice site patterns, the k-mer probabilities of coding and noncoding regions. There are a few dozen meta parameters but many thousands of parameters. The meta parameters determine how the parameters are calculated.
+      ```
+     
+     3. MAKE AN INITIAL TRAINING
   
   
 
