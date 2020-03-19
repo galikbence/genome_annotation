@@ -11,6 +11,8 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
    In this workflow, we mainly focus on how to integrate data generated with short read sequencing platforms. Also, you can include evidences, specially whole length transcripts, that were generated using long read sequencing technologies (PacBio, MinION). 
 
   ## 2. Preparing gene models
+  
+  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html) 
 
   ## 3. Repeat modelling & masking
 
