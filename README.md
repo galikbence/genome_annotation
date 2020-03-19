@@ -4,7 +4,7 @@ Pipeline for eukaryotic genome annotation based on external evidences using AUGU
 
   ## 1. Collecting external evidences
   
-   In order to maximize the genome annotation efficiency you should collect such data that can support a gene model for example __protein__ and __transcript__ sequences from closly related species. The best if you have __RNA-seq__ data from the species of interest. 
+   In order to maximize the genome annotation efficiency you should collect such data that can support a gene model for example __protein__ and __transcript__ sequences from closely related species. The best if you have __RNA-seq__ data directly from the species of interest. 
 
   ## 2. Preparing gene models
 
