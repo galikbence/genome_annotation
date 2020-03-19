@@ -28,6 +28,16 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
      You can find more detailed information in the training manual.
   
   Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints.
+  
+      From RNA-Seq
+      
+      Massive amounts of short transcriptome reads first need to be aligned to the genome.  We will assume that we have
+      already aligned the reads to the genome and that we have WIG and GFF files.
+      
+      1. The file coverage.wig contains a coverage graph, that contains for each base the number of reads alignments that
+      cover the position.
+      
+      2. the file 
 
   ## 3. Repeat modelling & masking
 
