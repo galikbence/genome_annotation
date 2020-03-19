@@ -76,9 +76,9 @@ We can prepare various gene models and hints file for our genome. We will use th
        
     5. Prediction repeats
     
-       <RepeatMaskerPath>/RepeatMasker -small --species <query species> --lib [filename for custom library] yourgenome.fasta
+       <RepeatMaskerPath>/RepeatMasker -small -gff --species <query species> --lib [filename for custom library] yourgenome.fasta
   
-  A few gene prediction tool can recogzie masked regions if you genom sequence is upper case and the masked regios is in lower case. Therefore we highly recommend to use `-small` option.
+  A few gene prediction tool can recogzie masked regions if you genom sequence is upper case and the masked regios is in lower case (specially AUGUSTUS). Therefore we highly recommend to use `-small` option. Also, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
 
   ## 4. Predicting ncRNAs & tRNAs
   
