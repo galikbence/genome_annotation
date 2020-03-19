@@ -27,17 +27,28 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
      
      You can find more detailed information in the training manual.
   
-  Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints.
+  Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step.
   
-      From RNA-Seq
+      Creating hints from RNA-Seq data
       
       Massive amounts of short transcriptome reads first need to be aligned to the genome.  We will assume that we have
       already aligned the reads to the genome and that we have WIG and GFF files.
       
-      1. The file coverage.wig contains a coverage graph, that contains for each base the number of reads alignments that
-      cover the position.
+      1. The file coverage.wig contains a coverage graph, that contains for each base in the genome and the number of reads
+         alignments that cover the position.
       
-      2. the file 
+      2. The file hints.rnaseq.intron.gff contains likely intron positions, inferred from gaps in the query of the read
+         alignments. Together with the intron boundaries the multiplicity (mult) is reported, which counts the number of
+         alignments that support the given intron candidate, if there is more than one.
+         
+      Generate hints about exonic regions from the coverage graph (wig file):
+      
+        cat coverage.wig | wig2hints.pl --width=10 --margin=10 --minthresh=2 --minscore=4 \
+        --src=W --type=ep --radius=4.5 > hints.rnaseq.ep.gff
+        
+      Concatenate all hints from all sources into one file:
+     
+        cat hints.est.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
 
   ## 3. Repeat modelling & masking
 
