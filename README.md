@@ -13,6 +13,7 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
   ## 2. Preparing gene models
   
   In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). 
+  
   The main steps are:
   
      1. COMPILE A SET OF TRAINING AND TEST GENES
@@ -56,6 +57,7 @@ We can prepare various gene models and hints file for our genome. We will use th
   ## 3. Repeat modelling & masking
   
   Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elemetns. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker). 
+  
   The main steps are:
   
     1. Create a Database for RepeatModeler
