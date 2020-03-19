@@ -3,6 +3,8 @@ Pipeline for eukaryotic genome annotation based on external evidences using AUGU
 #
 
   ## 1. Collecting external evidences
+  
+  bla bla
 
   ## 2. Preparing gene models
 
