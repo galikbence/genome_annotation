@@ -91,7 +91,7 @@ We can prepare various gene models and hints file for our genome. We will use th
   
   There are not only protein coding genes in your _genome of interest_. If you want to see the whole picture you should predict __non-coding RNA__ and __tRNA__ coding genes too. [tRNAscan-SE](https://github.com/biopro/genix/tree/master/bin/tRNAscan-SE) is one of the best tools for tRNA gene predictions. It is easy to run, fast and it has a [webserver](http://lowelab.ucsc.edu/tRNAscan-SE/).
   
-  Simple usage (see more in the [manual](https://github.com/biopro/genix/blob/master/bin/tRNAscan-SE/MANUAL)):
+  Simple usage (see more options in the [manual](https://github.com/biopro/genix/blob/master/bin/tRNAscan-SE/MANUAL)):
   
       tRNAscan-SE [-options] <FASTA file(s)>
   
