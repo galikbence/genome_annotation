@@ -67,6 +67,7 @@ We can prepare various gene models and hints file for our genome. We will use th
     3. Interperting the results
     
        At the succesful completion of a run, two files are generated:
+       
          <database_name>-families.fa  : Consensus sequences
          <database_name>-families.stk : Seed alignments
          
@@ -78,7 +79,9 @@ We can prepare various gene models and hints file for our genome. We will use th
     
        <RepeatMaskerPath>/RepeatMasker -small -gff --species <query species> --lib [filename for custom library] yourgenome.fasta
   
-  A few gene prediction tool can recogzie masked regions if you genom sequence is upper case and the masked regios is in lower case (specially AUGUSTUS). Therefore we highly recommend to use `-small` option. Also, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
+  A few gene prediction tool can recogzie masked regions if your genom sequence is upper case and the masked regios are in lower case (specially AUGUSTUS). Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
+  
+  Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate FASTA files and you can mask these files parallel. At the and you can simply combine the masked FASTA and GFF files into one.
 
   ## 4. Predicting ncRNAs & tRNAs
   
