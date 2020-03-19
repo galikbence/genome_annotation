@@ -53,14 +53,16 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
 We can prepare various gene models and hints file for our genome. We will use these files in Section 5.
 
   ## 3. Repeat modelling & masking
+  
+  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elemetns. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker).
 
   ## 4. Predicting ncRNAs & tRNAs
   
   ## 5. Predicting protein coding genes
 
-    ### GeneMark-ES
+   ### GeneMark-ES
 
-    ### AUGUSTUS
+   ### AUGUSTUS
 
   ## 6. Combining gene models
   
