@@ -22,9 +22,12 @@ Pipeline for eukaryotic genome annotation based on external evidences using [AUG
      
      4. RUN THE SCRIPT optimize_augustus.pl
      
+     We will use spliced alignments of de novo assembled transcriptome short reads (RNA-Seq) and 
+     spliced alignments of protein sequences against the assembled genomic sequence.
+     
      You can find more detailed information in the training manual.
   
-  
+  Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints.
 
   ## 3. Repeat modelling & masking
 
