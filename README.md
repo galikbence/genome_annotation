@@ -1,6 +1,10 @@
 # GENOME ANNOTATION WORKFLOW
 Workflow for eukaryotic genome annotation based on external evidences using [AUGUSTUS](https://github.com/Gaius-Augustus/Augustus) and [GeneMark-ES](http://exon.gatech.edu/GeneMark/) gene prediction tools.
 #
+
+![workflow](https://user-images.githubusercontent.com/47104867/77142207-ac294c80-6a7f-11ea-8de6-6667d8919472.png)
+
+#
 The workflow contains the following steps:
 
   1. Collecting external evidences
