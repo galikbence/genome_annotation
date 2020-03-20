@@ -192,13 +192,26 @@ The weights can be configured manually!
       
    If the separate `GFF` files contains headers (lines statring whit "#") you sould delete them. Other important thing is the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
    
-       #Example
+       #Example GFF files
+       
         Scaffold2	AUGUSTUS_1	gene	7345	7746	1	-	.	ID=g1
         Scaffold2	AUGUSTUS_2	gene	7345	7746	1	-	.	ID=g1
         Scaffold2	AUGUSTUS_3	gene	7345	13968	0.07	-	.	ID=g1
         Scaffold2	GeneMark.hmm	gene	7345	7746	1	-	.	ID=g1
    
-   #### 2. Alingments
+   #### 2. Alingments for evidences
+   
+   We can prepare cDNA (assembled transcripts from RNA-seq data) alignments using [GMAP/GSNAP](https://github.com/juliangehring/GMAP-GSNAP)
+   
+        #Creating genome index
+         gmap_build -d <genome> [-k <kmer size>] <fasta_files...>
+        
+        #Mapping transcrits to genome
+         gmap -d <genome> -B 5 -t 10 -f 3 transcripts.fasta
+         
+ Rename the output file to `cdna.gff`
+         
+   Also, we can use protein based evidences generated with [Exonerate](https://github.com/nathanweeks/exonerate) and [Scipio]().
 
    #### 3. Weights
    
