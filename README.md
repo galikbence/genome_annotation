@@ -6,6 +6,7 @@ Workflow for eukaryotic genome annotation based on external evidences using [AUG
 
 __Figure 1.__ Genome annotation workflow.
 #
+
 The workflow contains the following steps:
 
   1. Collecting external evidences
@@ -17,8 +18,6 @@ The workflow contains the following steps:
   7. Annotating protein coding genes
   
  #
- 
- 
  
   ## 1. Collecting external evidences
   
