@@ -179,6 +179,14 @@ Inputs to EVM include:
    - list of numeric weight values to be applied to each type of evidence
    
 The weights can be configured manually!
+
+   ### Preparing the inputs
+
+   #### Gene predictions
+
+   #### Alingments
+
+   #### Weights
   
   ## 7. Annotating protein coding genes
   
