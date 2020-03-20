@@ -187,6 +187,8 @@ The weights can be configured manually!
    #### Alingments
 
    #### Weights
+   
+   ### Running EVM
   
   ## 7. Annotating protein coding genes
   
