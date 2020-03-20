@@ -209,7 +209,7 @@ The weights can be configured manually!
         #Mapping transcrits to genome
          gmap -d <genome> -B 5 -t 10 -f 3 transcripts.fasta
          
- Rename the output file to `cdna.gff`
+ Rename the output file as `cdna.gff`!
          
    Also, we can use protein based evidences generated with [Exonerate](https://github.com/nathanweeks/exonerate) and [Scipio](https://www.webscipio.org).
    
@@ -221,7 +221,11 @@ The weights can be configured manually!
 
 See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate-user-guide)[Scipio](https://www.webscipio.org/help/scipio)).
 
-   #### 3. Weights
+Merge then rename the output file as `proteins.gff`! Again, the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
+
+   #### 3. Repeats
+
+   #### 4. Weights
    
    ### Running EVM
   
