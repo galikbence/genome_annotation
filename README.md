@@ -81,7 +81,7 @@ We can prepare various gene models and hints file for our genome. We will use th
   
     1. Create a Database for RepeatModeler
 
-       <RepeatModelerPath>/BuildDatabase -name genome_of_interest genome_of_interest.fa
+       <RepeatModelerPath>/BuildDatabase -name genome_of_interest genome_of_interest.fasta
 
     2. Run RepeatModeler
 
@@ -121,6 +121,12 @@ We can prepare various gene models and hints file for our genome. We will use th
   We will run the following algorithms:
 
    ### GeneMark-ES
+   
+ New genomes can be analyzed by [GeneMark-ES](http://exon.gatech.edu/GeneMark/) applying un/supervised self-training which is an important feature of the algorithm. Alos, it can take external evidences (RNA or protein) mapped to genome. So, we can use the previously prepared files (see Section 2.). We can run the `gmes_petap.pl` perl script to do the trainig and prediction steps in one. See the [documentation](https://wiki.gacrc.uga.edu/wiki/GeneMarkES-Teaching) for more information.
+   
+         gmes_petap.pl --soft_mask --ES --evidence hints.gff --cores <number of cores> --sequence genome_of_interest.fasta
+         
+  The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the repository.
 
    ### AUGUSTUS
 
