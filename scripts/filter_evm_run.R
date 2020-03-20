@@ -1,7 +1,20 @@
-setwd("/Volumes/Seagate Backup Plus Drive/Projects/Vienna/Hi5_new/gene_prediction/Compare_gene_predictions/")
+#!/usr/local/bin/R
 
-evm_out <- read.csv("run/hi5.evm.out", header = F, sep = "\t", stringsAsFactors = F)
-evm_gff <- read.csv("run/hi5.evm.gff", header = F, sep = "\t", stringsAsFactors = F)
+#Load packages
+library("argparser")
+
+#Options
+parser <- arg_parser(description='Process commandline arguments')
+parser <- add_argument(parser, arg=c("--evm_out", "--evm_gtf"), 
+                       help = c("EVM *.out result", "EVM *.gff result"),
+                       type = c("character", "character"))
+
+
+args = parse_args(parser)
+
+#Load EVM results
+evm_out <- read.csv("args$evm_out", header = F, sep = "\t", stringsAsFactors = F)
+evm_gff <- read.csv("args$evm_gff", header = F, sep = "\t", stringsAsFactors = F)
 
 model_pos <- grep("# EVM", evm_out[,1])
 model_end <- c(model_pos[2:length(model_pos)]-1, nrow(evm_out))
