@@ -168,7 +168,17 @@ At the end of these analyses we will use the GFF files from each gene prediction
 
   ## 6. Combining gene models
   
-In this section we will use all external evidences, repeats and gene prediction results in order to merge the different gene models 
+In this section we will use all external evidences, repeats and gene prediction results in order to merge the different gene models into one.
+
+The [EVidenceModeler](https://evidencemodeler.github.io) (EVM) software combines gene predictions and protein and/or transcript alignments (as external evidences) into __weighted__ consensus gene models. EVM provides a flexible and intuitive framework for combining diverse evidence types into a single automated gene structure annotation system.
+
+Inputs to EVM include: 
+   - the genome sequence 
+   - gene predictions in GFF3 format
+   - alignment data in GFF3 format 
+   - list of numeric weight values to be applied to each type of evidence
+   
+The weights can be configured manually!
   
   ## 7. Annotating protein coding genes
   
