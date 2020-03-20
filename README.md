@@ -164,7 +164,7 @@ Exmple runs (each case we will predict only complete genes on both strands):
        
        augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
        
-At the end of these analyses we will use the `GFF` files from each gene prediction run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amognst the different run.
+At the end of these analyses we will use the `GFF` files from each gene prediction run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amognst the different runs.
 
   ## 6. Combining gene models
   
