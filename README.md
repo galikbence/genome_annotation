@@ -224,6 +224,8 @@ See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebra
 Merge then rename the output file as `proteins.gff`! Again, the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
 
    #### 3. Repeats
+   
+We can use the `GFF` output from repeat masing (see Section 3.) Rename the output as `repeats.gff`
 
    #### 4. Weights
    
