@@ -255,7 +255,7 @@ We have all the necessary inputs for running EVidenceModeler.
 
 The main steps are:
 
-Or you can use the [runEVidenceModeler.sh]() script. Before running you may change it a little bit!
+Or you can use the [runEVidenceModeler.sh](https://github.com/galikbence/genome_annotation/blob/master/scripts/runEvidenceModeler.sh) script. Before running you may change it a little bit!
   
   ## 7. Annotating protein coding genes
   
