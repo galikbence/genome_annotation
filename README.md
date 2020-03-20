@@ -206,7 +206,7 @@ The weights can be configured manually!
         #Creating genome index
          gmap_build -d <genome> [-k <kmer size>] <fasta_files...>
         
-        #Mapping transcrits to genome
+        #Mapping transcripts to the genome
          gmap -d <genome> -B 5 -t 10 -f 3 transcripts.fasta
          
  Rename the output file as `cdna.gff`!
@@ -225,9 +225,29 @@ Merge then rename the output file as `proteins.gff`! Again, the __source__ colum
 
    #### 3. Repeats
    
-We can use the `GFF` output from repeat masing (see Section 3.) Rename the output as `repeats.gff`
+We can use the `GFF` output from repeat masing (see Section 3.) Rename the output as `repeats.gff`.
 
    #### 4. Weights
+   
+We can easily creat the weights file which has three columns: 
+   - evidence class 
+   - type, correspoding to the name of the tool/run that was used to generate it
+   - weight
+   
+The class parameter can be one of the following: 
+   - ABINITIO_PREDICTION 
+   - PROTEIN
+   - TRANSCRIPT
+   
+These are the only input types accepted by EVM currently. An example weight file looks like:
+
+         TRANSCRIPT	GMAP	10
+         PROTEIN	exonerate	5
+         PROTEIN	Scipio	5
+         ABINITIO_PREDICTION	AUGUSTUS_1	1
+         ABINITIO_PREDICTION	AUGUSTUS_2	1
+         ABINITIO_PREDICTION	AUGUSTUS_3	1
+         ABINITIO_PREDICTION	GeneMark.hmm	1
    
    ### Running EVM
   
