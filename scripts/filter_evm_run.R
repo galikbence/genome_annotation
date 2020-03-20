@@ -13,9 +13,10 @@ parser <- add_argument(parser, arg=c("--evm_out", "--evm_gtf"),
 args = parse_args(parser)
 
 #Load EVM results
-evm_out <- read.csv("args$evm_out", header = F, sep = "\t", stringsAsFactors = F)
-evm_gff <- read.csv("args$evm_gff", header = F, sep = "\t", stringsAsFactors = F)
+evm_out <- read.csv(args$evm_out, header = F, sep = "\t", stringsAsFactors = F)
+evm_gff <- read.csv(args$evm_gff, header = F, sep = "\t", stringsAsFactors = F)
 
+#Get gene model positions (star/end)
 model_pos <- grep("# EVM", evm_out[,1])
 model_end <- c(model_pos[2:length(model_pos)]-1, nrow(evm_out))
 
