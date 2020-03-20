@@ -136,9 +136,13 @@ AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It ca
 
 You can run AUGUSTUS several times using the basic gene model, the gene model of the closest related species and the gene model with hints that we prepared in Section 2.
 
-Exmple runs (each case we will predict only complete genes):
+Exmple runs (each case we will predict only complete genes on both strands):
 
        augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
+       
+       augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --hintsfile=hints.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
+       
+       augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
 
   ## 6. Combining gene models
   
