@@ -48,11 +48,11 @@ The workflow contains the following steps:
      
         #We will run the following commands: 
         
-          blat -minIdentity=92 <genome.fa> <cdna.fa> <cdna.psl>
+            blat -minIdentity=92 <genome.fa> <cdna.fa> <cdna.psl>
    
-       	 pslCDnaFilter -maxAligns=1 cdna.psl cdna.f.psl
+            pslCDnaFilter -maxAligns=1 cdna.psl cdna.f.psl
 
-          blat2hints.pl --in=cdna.f.psl --out=hints.gff
+            blat2hints.pl --in=cdna.f.psl --out=hints.gff
      
      You can find more detailed information in the training manual.
   
