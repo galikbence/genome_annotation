@@ -46,6 +46,14 @@ The workflow contains the following steps:
      We will use spliced alignments of de novo assembled transcriptome short reads (RNA-Seq) and 
      spliced alignments of protein sequences against the assembled genomic sequence.
      
+        #We will run the following commands: 
+        
+          blat -minIdentity=92 <genome.fa> <cdna.fa> <cdna.psl>
+   
+       	 pslCDnaFilter -maxAligns=1 cdna.psl cdna.f.psl
+
+          blat2hints.pl --in=cdna.f.psl --out=hints.gff
+     
      You can find more detailed information in the training manual.
   
   Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step. You can find more detailed information reading the AUGUSTUS [tutorial](https://fossies.org/linux/augustus/docs/tutorial/prediction.html#prephints).
