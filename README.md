@@ -211,7 +211,15 @@ The weights can be configured manually!
          
  Rename the output file to `cdna.gff`
          
-   Also, we can use protein based evidences generated with [Exonerate](https://github.com/nathanweeks/exonerate) and [Scipio]().
+   Also, we can use protein based evidences generated with [Exonerate](https://github.com/nathanweeks/exonerate) and [Scipio](https://www.webscipio.org).
+   
+         #Exonerate example
+          exonerate --model protein2genome query_proteins.fasta target_genome.fasta
+          
+         #Scipio example
+          scipio.pl [<options>] <target genome> <query protein>
+
+See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate-user-guide)[Scipio](https://www.webscipio.org/help/scipio)).
 
    #### 3. Weights
    
