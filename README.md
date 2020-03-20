@@ -182,11 +182,11 @@ The weights can be configured manually!
 
    ### Preparing the inputs
 
-   #### - Gene predictions
+   #### 1. Gene predictions
 
-   #### - Alingments
+   #### 2. Alingments
 
-   #### - Weights
+   #### 3. Weights
    
    ### Running EVM
   
