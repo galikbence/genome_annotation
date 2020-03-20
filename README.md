@@ -31,7 +31,9 @@ The workflow contains the following steps:
 
   ## 2. Preparing gene models and other evidences
   
-  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). 
+  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). Alos we will prepare other evidences.
+  
+  __Retraining AUGUSTUS__
   
   The main steps are:
   
@@ -46,19 +48,11 @@ The workflow contains the following steps:
      We will use spliced alignments of de novo assembled transcriptome short reads (RNA-Seq) and 
      spliced alignments of protein sequences against the assembled genomic sequence.
      
-        #We will run the following commands: 
-        
-            blat -minIdentity=92 <genome.fa> <cdna.fa> <cdna.psl>
-   
-            pslCDnaFilter -maxAligns=1 cdna.psl cdna.f.psl
-
-            blat2hints.pl --in=cdna.f.psl --out=hints.gff
-     
      You can find more detailed information in the training manual.
   
   Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step. You can find more detailed information reading the AUGUSTUS [tutorial](https://fossies.org/linux/augustus/docs/tutorial/prediction.html#prephints).
   
-      Creating hints from RNA-Seq data
+ __Creating hints from RNA-Seq data__
       
       Massive amounts of short transcriptome reads first need to be aligned to the genome.  We will assume that we have
       already aligned the reads to the genome and that we have WIG and GFF files.
@@ -75,9 +69,21 @@ The workflow contains the following steps:
         cat coverage.wig | wig2hints.pl --width=10 --margin=10 --minthresh=2 --minscore=4 \
         --src=W --type=ep --radius=4.5 > hints.rnaseq.ep.gff
         
-      Concatenate all hints from all sources into one file:
+        
+ __Creating hints from cDNA__
+ 
+        blat -minIdentity=92 <genome.fa> <cdna.fa> <cdna.psl>
+   
+        pslCDnaFilter -maxAligns=1 cdna.psl cdna.f.psl
+
+        blat2hints.pl --in=cdna.f.psl --out=hints.gff
+        
+      
+ __Concatenate all hints from all sources into one file:__
      
         cat hints.est.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
+        
+      
        
 We can prepare various gene models and hints file for our genome. We will use these files in Section 5.
 
