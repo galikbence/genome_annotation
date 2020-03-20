@@ -168,6 +168,8 @@ At the end of these analyses we will use the GFF files from each gene prediction
 
   ## 6. Combining gene models
   
+In this section we will use all external evidences, repeats and gene prediction results in order to merge the different gene models 
+  
   ## 7. Annotating protein coding genes
   
     ### BLAST
