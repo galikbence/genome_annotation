@@ -164,7 +164,7 @@ Exmple runs (each case we will predict only complete genes on both strands):
        
        augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
        
-At the end of these analyses we will use the GFF files from each gene prediction run (GeneMark-ES and AUGUSTUS).
+At the end of these analyses we will use the `GFF` files from each gene prediction run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amognst the different run.
 
   ## 6. Combining gene models
   
@@ -221,7 +221,7 @@ The weights can be configured manually!
 
 See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate-user-guide), [Scipio](https://www.webscipio.org/help/scipio)).
 
-Merge then rename the output file as `proteins.gff`! Again, the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
+Merge then rename the output file as `proteins.gff`! Again, the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run. 
 
    #### 3. Repeats
    
@@ -287,6 +287,8 @@ The main steps are:
       cat <Name of the contigs/scaffolds>/evm.out.gff3 > evm.out.all.gff
 
 Or you can use the [runEVidenceModeler.sh](https://github.com/galikbence/genome_annotation/blob/master/scripts/runEvidenceModeler.sh) script. Before running it you may have change it a little bit!
+
+After 
   
   ## 7. Annotating protein coding genes
   
