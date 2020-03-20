@@ -96,6 +96,10 @@ We can prepare various gene models and hints file for our genome. We will use th
       tRNAscan-SE [-options] <FASTA file(s)>
    
   ## 5. Predicting protein coding genes
+  
+  This is the core part of the workflow. We will use an evidence driven _ab initio_ gene prediction approach running several gene predictor tools. Since we want to predict thousand of protein coding genes we automatize the process but we don't have time to refine all gene models by hand. Therefore, we will use more than one tool and in the next section we will combine these results. Also, each algorthim has it's advandage. 
+  
+  We will run the following algorithms:
 
    ### GeneMark-ES
 
