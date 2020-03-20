@@ -183,7 +183,15 @@ The weights can be configured manually!
    ### Preparing the inputs
 
    #### 1. Gene predictions
-
+   
+   We should merge all `GFF` files from all gene predictions into one file. 
+   
+      #Example
+      
+         cat prediction_1.gff prediction_2.gff prediction_3.gff prediction_N.gff > gene_predictions.gff
+      
+   If the separate `GFF` files contains headers (lines statring whit "#") you sould delete these ones. 
+   
    #### 2. Alingments
 
    #### 3. Weights
