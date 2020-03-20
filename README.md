@@ -140,7 +140,7 @@ We can prepare various gene models and hints file for our genome. We will use th
    
          gmes_petap.pl --soft_mask --ES --evidence hints.gff --cores <number of cores> --sequence genome_of_interest.fasta
          
-  The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts).
+  The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts). Next we should convert GTF into GFF using [gffread](https://github.com/gpertea/gffread).
   
   You should run GeneMark-ES only once!
 
@@ -154,15 +154,15 @@ Exmple runs (each case we will predict only complete genes on both strands):
 
        #Run 1
        
-       augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
+       augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --outfile=[out_file] genome_of_interest.fasta
        
        #Run 2
        
-       augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --hintsfile=hints.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
+       augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --hintsfile=hints.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
        
        #Run 3
        
-       augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
+       augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
 
   ## 6. Combining gene models
   
