@@ -128,9 +128,11 @@ We can prepare various gene models and hints file for our genome. We will use th
          
   The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts).
   
-  You should run GeneMark-ES only once.
+  You should run GeneMark-ES only once!
 
    ### AUGUSTUS
+
+AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on web server or run locally.
 
   ## 6. Combining gene models
   
