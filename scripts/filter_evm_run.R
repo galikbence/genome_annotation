@@ -16,10 +16,11 @@ args = parse_args(parser)
 evm_out <- read.csv(args$evm_out, header = F, sep = "\t", stringsAsFactors = F)
 evm_gff <- read.csv(args$evm_gff, header = F, sep = "\t", stringsAsFactors = F)
 
-#Get gene model positions (star/end)
+#Get gene model positions (star/end) from OUT file
 model_pos <- grep("# EVM", evm_out[,1])
 model_end <- c(model_pos[2:length(model_pos)]-1, nrow(evm_out))
 
+#Collcet the points for evidences for each exon in each model
 model_evidences <- matrix(NA, ncol = 2)
 
 for(mod in 1:length(model_pos)){
@@ -37,9 +38,11 @@ for(mod in 1:length(model_pos)){
 
 model_evidences <- model_evidences[2:nrow(model_evidences),]
 
+#Get model positions
 model_pos <- grep("Model", model_evidences[,1])
-model_end <- c(model_pos[2:18855]-1, nrow(model_evidences))
+model_end <- c(model_pos[2:length(model_pos)]-1, nrow(model_evidences))
 
+#Get the mean of evidence weights
 model_means <- cbind(model_evidences[model_pos,1], NA)
 
 for(mod in 1:length(model_pos)){
@@ -48,11 +51,14 @@ for(mod in 1:length(model_pos)){
 
 }
 
+#Define BAD models
 bad_models <- grep(F, model_means[,2] > 2)
 
+#Get model positions again
 model_pos <- grep("# EVM", evm_out[,1])
-model_end <- c(model_pos[2:18855]-1, nrow(evm_out))
+model_end <- c(model_pos[2:length(model_pos)]-1, nrow(evm_out))
 
+#Identify worst models
 worst_models <- NA
 
 for(bm in bad_models){
@@ -64,6 +70,8 @@ for(bm in bad_models){
 }
 
 worst_models <- worst_models[2:length(worst_models)]
+
+#Identify the most worst models
 most_worst_models <- NA
 
 for(bm in worst_models){
@@ -73,11 +81,13 @@ for(bm in worst_models){
   
 }
 
+#Get gene positions from GFF file
 gene_pos <- grep("gene", evm_gff[,3])
-gene_end <- c(gene_pos[2:18855]-1, nrow(evm_gff))
+gene_end <- c(gene_pos[2:length(gene_pos)]-1, nrow(evm_gff))
 
+#Select GOOD gene models
 final_genes <- evm_gff[1,]
-good_genes <- seq(1,18855,1)
+good_genes <- seq(1,length(gene_pos),1)
 good_genes <- good_genes[is.na(match(good_genes, worst_models))]
 
 good_gff <- evm_gff[1,]
@@ -90,7 +100,5 @@ for(g in good_genes){
 
 good_gff <- good_gff[2:nrow(good_gff),]
 
-write.table(good_gff, file = "Hi5.final.genes.gff", sep = "\t", quote = F, col.names = F, row.names = F)
-
-
-
+#Write GFF output
+write.table(good_gff, file = "final.genes.gff", sep = "\t", quote = F, col.names = F, row.names = F)
