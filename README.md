@@ -138,9 +138,15 @@ You can run AUGUSTUS several times using the basic gene model, the gene model of
 
 Exmple runs (each case we will predict only complete genes on both strands):
 
+       #Run 1
+       
        augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
        
+       #Run 2
+       
        augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --hintsfile=hints.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
+       
+       #Run 3
        
        augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
 
