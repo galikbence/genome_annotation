@@ -29,7 +29,7 @@ The workflow contains the following steps:
    
    In this workflow, we mainly focus on how to integrate data generated with short read sequencing platforms. Also, you can include evidences, specially whole length transcripts, that were generated using long read sequencing technologies (PacBio, MinION). 
 
-  ## 2. Preparing gene models
+  ## 2. Preparing gene models and other evidences
   
   In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). 
   
@@ -132,7 +132,13 @@ We can prepare various gene models and hints file for our genome. We will use th
 
    ### AUGUSTUS
 
-AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on web server or run locally.
+AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on web server or run locally. It has 2 mandatory arguments. The query file and the species. CóYou can find more details about how to run the tool in the [manual](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/RUNNING-AUGUSTUS.md).
+
+You can run AUGUSTUS several times using the basic gene model, the gene model of the closest related species and the gene model with hints that we prepared in Section 2.
+
+Exmple runs (each case we will predict only complete genes):
+
+       augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --outfile=[gene_models_in_txt_format] genome_of_interest.fasta
 
   ## 6. Combining gene models
   
