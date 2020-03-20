@@ -192,6 +192,12 @@ The weights can be configured manually!
       
    If the separate `GFF` files contains headers (lines statring whit "#") you sould delete them. Other important thing is the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
    
+       #Example
+        Scaffold2	AUGUSTUS_1	gene	7345	7746	1	-	.	ID=g1
+        Scaffold2	AUGUSTUS_2	gene	7345	7746	1	-	.	ID=g1
+        Scaffold2	AUGUSTUS_3	gene	7345	13968	0.07	-	.	ID=g1
+        Scaffold2	GeneMark.hmm	gene	7345	7746	1	-	.	ID=g1
+   
    #### 2. Alingments
 
    #### 3. Weights
