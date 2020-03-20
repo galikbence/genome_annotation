@@ -219,7 +219,7 @@ The weights can be configured manually!
          #Scipio example
           scipio.pl [<options>] <target genome> <query protein>
 
-See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate-user-guide)[Scipio](https://www.webscipio.org/help/scipio)).
+See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate-user-guide), [Scipio](https://www.webscipio.org/help/scipio)).
 
 Merge then rename the output file as `proteins.gff`! Again, the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
 
