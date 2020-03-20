@@ -76,12 +76,12 @@ The workflow contains the following steps:
    
         pslCDnaFilter -maxAligns=1 cdna.psl cdna.f.psl
 
-        blat2hints.pl --in=cdna.f.psl --out=hints.gff
+        blat2hints.pl --in=cdna.f.psl --out=hints.cdna.gff
         
       
- __Concatenate all hints from all sources into one file:__
+ __Concatenate all hints from all type sources into one file:__
      
-        cat hints.est.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
+        cat hints.cnda.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
         
       
        
