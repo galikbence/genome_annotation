@@ -126,7 +126,7 @@ We can prepare various gene models and hints file for our genome. We will use th
    
          gmes_petap.pl --soft_mask --ES --evidence hints.gff --cores <number of cores> --sequence genome_of_interest.fasta
          
-  The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the repository.
+  The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts).
 
    ### AUGUSTUS
 
