@@ -250,6 +250,12 @@ These are the only input types accepted by EVM currently. An example weight file
          ABINITIO_PREDICTION	GeneMark.hmm	1
    
    ### Running EVM
+   
+We have all the necessary inputs for running EVidenceModeler. 
+
+The main steps are:
+
+Or you can use the [runEVidenceModeler.sh]() script. Before running you may change it a little bit!
   
   ## 7. Annotating protein coding genes
   
