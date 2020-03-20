@@ -265,13 +265,13 @@ The main steps are:
 
  - Generating the EVM Command Set
       
-      perl ${EVM_HOME}/EvmUtils/write_EVM_commands.pl --genome sotfmasked_genome.fasta --weights weights.txt \
+       perl ${EVM_HOME}/EvmUtils/write_EVM_commands.pl --genome sotfmasked_genome.fasta --weights weights.txt \
             --gene_predictions gene_predictions.gff --protein_alignments proteins.gff \
             --transcript_alignments cdna.gff \
             --repeats repeats.gff \
             --output_file_name evm.out  --partitions partitions_list.out >  commands.list
 
-      perl $EVM_HOME/EvmUtils/execute_EVM_commands.pl commands.list | tee run.log
+       perl $EVM_HOME/EvmUtils/execute_EVM_commands.pl commands.list | tee run.log
 
 - Combining the Partitions
 
