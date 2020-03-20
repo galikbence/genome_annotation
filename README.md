@@ -288,7 +288,7 @@ The main steps are:
 
 Or you can use the [runEVidenceModeler.sh](https://github.com/galikbence/genome_annotation/blob/master/scripts/runEvidenceModeler.sh) script. Before running it you may have change it a little bit!
 
-After 
+At the end of this process we can filter the results based on the number of evidences that support a gene model. You can use the [filter_evm_run.R]() script. The input are the `evm.out.all.gff` and `evm.all.out` files.
   
   ## 7. Annotating protein coding genes
   
