@@ -31,7 +31,7 @@ The workflow contains the following steps:
 
   ## 2. Preparing gene models and other evidences
   
-  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). Alos we will prepare other evidences.
+  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). Also we will prepare other evidences.
   
   __Retraining AUGUSTUS__
   
@@ -89,7 +89,7 @@ We can prepare various gene models and hints file for our genome. We will use th
 
   ## 3. Repeat modelling & masking
   
-  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elemetns. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker). 
+  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elements. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker). 
   
   The main steps are:
   
@@ -116,9 +116,9 @@ We can prepare various gene models and hints file for our genome. We will use th
     
        <RepeatMaskerPath>/RepeatMasker -small -gff --species <query species> --lib [filename for custom library] yourgenome.fasta
   
-  A few gene prediction tool can recogzie masked regions if your genom sequence is upper case and the masked regios are in lower case. Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
+  A few gene prediction tool can recognize masked regions if your genom sequence is upper case and the masked regios are in lower case. Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
   
-  Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate FASTA files and you can mask these files parallel. At the and you can simply combine the masked FASTA and GFF files into one.
+  Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate FASTA files and you can mask these files parallel. At the end you can simply combine the masked FASTA and GFF files into one.
 
   ## 4. Predicting tRNAs
   
@@ -136,17 +136,17 @@ We can prepare various gene models and hints file for our genome. We will use th
 
    ### GeneMark-ES
    
- New genomes can be analyzed by [GeneMark-ES](http://exon.gatech.edu/GeneMark/) applying un/supervised self-training which is an important feature of the algorithm. Alos, it can take external evidences (RNA or protein) mapped to genome. So, we can use the previously prepared files (see Section 2.). We can run the `gmes_petap.pl` perl script to do the trainig and prediction steps in one. See the [documentation](https://wiki.gacrc.uga.edu/wiki/GeneMarkES-Teaching) for more information.
+ New genomes can be analyzed by [GeneMark-ES](http://exon.gatech.edu/GeneMark/) applying un/supervised self-training which is an important feature of the algorithm. Also, it can take external evidences (RNA or protein) mapped to genome. So, we can use the previously prepared files (see Section 2.). We can run the `gmes_petap.pl` perl script to do the trainig and prediction steps in one. See the [documentation](https://wiki.gacrc.uga.edu/wiki/GeneMarkES-Teaching) for more information.
    
          gmes_petap.pl --soft_mask --ES --evidence hints.gff --cores <number of cores> --sequence genome_of_interest.fasta
          
-  The ouput is a GTF file. However, the program can predicting incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` scritp that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts). Next we should convert GTF into GFF using [gffread](https://github.com/gpertea/gffread).
+  The ouput is a GTF file. However, the program can predict incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` script that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts). Next we should convert GTF into GFF using [gffread](https://github.com/gpertea/gffread).
   
   You should run GeneMark-ES only once!
 
    ### AUGUSTUS
 
-AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on web server or run locally. It has 2 mandatory arguments. The query file and the species. CóYou can find more details about how to run the tool in the [manual](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/RUNNING-AUGUSTUS.md).
+AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on web server or run locally. It has 2 mandatory arguments. The query file and the species. You can find more details about how to run the tool in the [manual](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/RUNNING-AUGUSTUS.md).
 
 You can run AUGUSTUS several times using the basic gene model, the gene model of the closest related species and the gene model with hints that we prepared in Section 2.
 
@@ -164,7 +164,7 @@ Exmple runs (each case we will predict only complete genes on both strands):
        
        augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
        
-At the end of these analyses we will use the `GFF` files from each gene prediction run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amognst the different runs.
+At the end of these analyses we will use the `GFF` files from each gene prediction run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amongst the different runs.
 
   ## 6. Combining gene models
   
