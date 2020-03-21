@@ -303,6 +303,8 @@ In this workflow we don't care about the alternative splicing events. However, i
  However, BALST has good balance of sensitivity and speed, it is flexible and reliable BUT the quality of the results depends on the database. It can happen there are a lot of unannotated and hypothetical elements in your databese. Also, if your databes is good you will have a lot of elemets that have poor matches etc... 
  
  Therefore, we highly recommend to scan your sequence for matches against the protein signature databases. For this porupse [InterPro](https://www.ebi.ac.uk/interpro/) provides functional analysis of proteins by classifying them into families and predicting domains and important sites. You can do quick [search](https://www.ebi.ac.uk/interpro/search/sequence/) with limited number of amino acids (40,000). If you want to analyze thousands of sequences you can download the [InterProScan](https://www.ebi.ac.uk/interpro/download/) tool. It has a github [repository](https://github.com/ebi-pf-team/interproscan) but for more information on downloading, installing and running it please see the [wiki](https://github.com/ebi-pf-team/interproscan/wiki) page.
+ 
+ Finally, we can gain more information by reconstructing KEGG pathways using [KAAS](https://www.genome.jp/kegg/kaas/) or [BlastKOALA](https://www.kegg.jp/blastkoala/). Than mapping KO elements to general pathways or comparing it to the closest realted species using [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html) Bioconductor package or other tools.
   
    ### BLAST example
  
@@ -341,6 +343,4 @@ Aslo, we switch on the GO and pathway annotation. For further analyses or making
       #Example
        interproscan.sh --output-dir <OUTPUT-DIR> --output-file-base <OUTPUT-FILE-BASE> --formats GFF,TSV,HTML --goterms --iprlookup --pathways --seqtype protein --input <INPUT-FILE-PATH>
     
-    
-
-
+ 
