@@ -319,30 +319,23 @@ A BLAST search against a database requires at least a –query and –db option:
 Once you have uncompressed your download, you can run InterProScan directly from the command line. In the following example we will use the protein sequences for the analysis. If the `--applications <ANALYSES>` option is not set, ALL analyses will be run.
 
 Available analyses:
-                      TIGRFAM (XX.X) : TIGRFAMs are protein families based on Hidden Markov Models or HMMs
-                         SFLD (X.X) : SFLDs are protein families based on Hidden Markov Models or HMMs
-                        ProDom (XXXX.X) : ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database.
-                        Hamap (XXXXXX.XX) : High-quality Automated and Manual Annotation of Microbial Proteomes
-                        SMART (X.X) : SMART allows the identification and analysis of domain architectures based on Hidden Markov Models or HMMs
-                          CDD (X.XX) : Prediction of CDD domains in Proteins
-              ProSiteProfiles (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
-              ProSitePatterns (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
-                  SUPERFAMILY (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.
-                       PRINTS (XX.X) : A fingerprint is a group of conserved motifs used to characterise a protein family
-                      PANTHER (X.X) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to predict function even in the absence of direct experimental evidence.
-                       Gene3D (X.X.X) : Structural assignment for whole genes and genomes using the CATH domain structure database
-                        PIRSF (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
-                         Pfam (XX.X) : A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs)
-                        Coils (X.X) : Prediction of Coiled Coil Regions in Proteins
-                   MobiDBLite (X.X) : Prediction of disordered domains Regions in Proteins
 
-Deactivated analyses:
-        SignalP_GRAM_POSITIVE (X.X) : Analysis SignalP_GRAM_POSITIVE-X.X is deactivated, because the following parameters are not set in the interproscan.properties file: binary.signalp.4.0.path
-                  SignalP_EUK (X.X) : Analysis SignalP_EUK-X.X is deactivated, because the following parameters are not set in the interproscan.properties file: binary.signalp.4.0.path
-                      Phobius (X.XX) : Analysis Phobius-X.XX is deactivated, because the following parameters are not set in the interproscan.properties file: binary.phobius.pl.path.1.01
-                        TMHMM (X.Xc) : Analysis TMHMM-X.Xc is deactivated, because the following parameters are not set in the interproscan.properties file: binary.tmhmm.path, tmhmm.model.path
-        SignalP_GRAM_NEGATIVE (X.X) : Analysis SignalP_GRAM_NEGATIVE-X.X is deactivated, because the following parameters are not set in the interproscan.properties file: binary.signalp.4.0.path
-        
+- TIGRFAM (XX.X) : TIGRFAMs are protein families based on Hidden Markov Models or HMMs
+- SFLD (X.X) : SFLDs are protein families based on Hidden Markov Models or HMMs
+- ProDom (XXXX.X) : ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database.
+- Hamap (XXXXXX.XX) : High-quality Automated and Manual Annotation of Microbial Proteomes
+- SMART (X.X) : SMART allows the identification and analysis of domain architectures based on Hidden Markov Models or HMMs
+- CDD (X.XX) : Prediction of CDD domains in Proteins
+- ProSiteProfiles (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
+- ProSitePatterns (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
+- SUPERFAMILY (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.
+- PRINTS (XX.X) : A fingerprint is a group of conserved motifs used to characterise a protein family
+- PANTHER (X.X) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to - - Gene3D (X.X.X) : Structural assignment for whole genes and genomes using the CATH domain structure database
+- PIRSF (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
+- Pfam (XX.X) : A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs)
+- Coils (X.X) : Prediction of Coiled Coil Regions in Proteins
+- MobiDBLite (X.X) : Prediction of disordered domains Regions in Proteins
+
 Aslo, we swithc on the 
 
       ./interproscan.sh --output-dir <OUTPUT-DIR> --output-file-base <OUTPUT-FILE-BASE> --formats GFF,TSV,HTML --goterms --iprlookup --pathways --seqtype protein --input <INPUT-FILE-PATH>
