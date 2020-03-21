@@ -143,7 +143,7 @@ We can prepare various gene models and hints file for our genome. Later, we will
         
          gmes_petap.pl --soft_mask --ES --evidence hints.gff --cores <number of cores> --sequence genome_of_interest.fasta
          
-  The ouput is a GTF file. However, the program can predict incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` script that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts). Next we should convert GTF into GFF using [gffread](https://github.com/gpertea/gffread).
+  The ouput is a GTF file. However, the program can predict incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` script that you can find in the [repository](https://github.com/galikbence/genome_annotation/blob/master/scripts/filter_genemark.R). Next we should convert GTF into GFF using [gffread](https://github.com/gpertea/gffread).
   
   You should run GeneMark-ES only once!
 
@@ -297,7 +297,7 @@ The main steps are:
 
 Or you can use the [runEVidenceModeler.sh](https://github.com/galikbence/genome_annotation/blob/master/scripts/runEvidenceModeler.sh) script. Before running it you may have change it a little bit!
 
-At the end of this process we can filter the results based on the number of evidences that support a gene model. For example we get rid of those models that have only 1 _ab initio_ evidence per feature (exon/intron). You can use the [filter_evm_run.R]() script with basic filtering options. The input are the `evm.out.all.gff` and `evm.all.out` files.
+At the end of this process we can filter the results based on the number of evidences that support a gene model. For example we get rid of those models that have only 1 _ab initio_ evidence per feature (exon/intron). You can use the [filter_evm_run.R](https://github.com/galikbence/genome_annotation/blob/master/scripts/filter_evm_run.R) script with basic filtering options. The input are the `evm.out.all.gff` and `evm.all.out` files. Also, you can come up with your own idea. 
   
 Finally we will extract the CDS and protein sequences that we will use in the annotation step (Section 7.).
 
