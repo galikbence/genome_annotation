@@ -353,7 +353,7 @@ Available analyses:
 - __Coils__ (X.X) : Prediction of Coiled Coil Regions in Proteins
 - __MobiDBLite__ (X.X) : Prediction of disordered domains Regions in Proteins
 
-Also, we switch on the GO and pathway annotation. For further analyses or making summary of the results we can use the `TSV` and `GFF` outputs. For better interpretation use the `HTML` output.
+Also, we switch on the GO and pathway annotation options. For further analyses or making summary of the results we can use the `TSV` and `GFF` outputs. For better interpretation use the `HTML` output.
 
       #Example
       
