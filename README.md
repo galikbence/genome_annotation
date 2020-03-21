@@ -296,7 +296,7 @@ In this workflow we don't care about the alternative splicing events. However, i
 
   ## 7. Annotating protein coding genes
   
- Now we have all the protein coding genes 
+ Now we have all the protein coding genes from Section 6. We will annotate structural and functional features of the coding sequences (or you can use the proteins). One of the most popular approach is to annotate the gene of interes based on similarity unsing [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi). If you have to  align thousands of sequnces you can use the local version and you can prepare a custom database by colleting all __well annotated__ proteins/transcripts from closely related species or you can use the [UniProtKB/Swiss-Prot]() database.
   
     ### BLAST
     
