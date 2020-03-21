@@ -322,13 +322,13 @@ Available analyses:
 
 - __TIGRFAM__ (XX.X) : TIGRFAMs are protein families based on Hidden Markov Models or HMMs
 - __SFLD__ (X.X) : SFLDs are protein families based on Hidden Markov Models or HMMs
-- __ProDom__ (XXXX.X) : ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database.
+- __ProDom__ (XXXX.X) : ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database
 - __Hamap__ (XXXXXX.XX) : High-quality Automated and Manual Annotation of Microbial Proteomes
 - __SMART__ (X.X) : SMART allows the identification and analysis of domain architectures based on Hidden Markov Models or HMMs
 - __CDD__ (X.XX) : Prediction of CDD domains in Proteins
 - __ProSiteProfiles__ (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
 - __ProSitePatterns__ (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
-- __SUPERFAMILY__ (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.
+- __SUPERFAMILY__ (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes
 - __PRINTS__ (XX.X) : A fingerprint is a group of conserved motifs used to characterise a protein family
 - __PANTHER__ (X.X) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to - - Gene3D (X.X.X) : Structural assignment for whole genes and genomes using the CATH domain structure database
 - __PIRSF__ (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
@@ -336,9 +336,10 @@ Available analyses:
 - __Coils__ (X.X) : Prediction of Coiled Coil Regions in Proteins
 - __MobiDBLite__ (X.X) : Prediction of disordered domains Regions in Proteins
 
-Aslo, we swithc on the 
+Aslo, we switch on the GO and pathway annotation. For further analyses or making summary of the results we can use the TSV and GFF outputs.       
 
-      ./interproscan.sh --output-dir <OUTPUT-DIR> --output-file-base <OUTPUT-FILE-BASE> --formats GFF,TSV,HTML --goterms --iprlookup --pathways --seqtype protein --input <INPUT-FILE-PATH>
+      #Example
+       interproscan.sh --output-dir <OUTPUT-DIR> --output-file-base <OUTPUT-FILE-BASE> --formats GFF,TSV,HTML --goterms --iprlookup --pathways --seqtype protein --input <INPUT-FILE-PATH>
     
     
 
