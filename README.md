@@ -304,8 +304,16 @@ In this workflow we don't care about the alternative splicing events. However, i
  
  Therefore, we highly recommend to scan your sequence for matches against the protein signature databases. For this porupse [InterPro](https://www.ebi.ac.uk/interpro/) provides functional analysis of proteins by classifying them into families and predicting domains and important sites. You can do quick [search](https://www.ebi.ac.uk/interpro/search/sequence/) with limited number of amino acids (40,000). If you want to analyze thousands of sequences you can download the [InterProScan](https://www.ebi.ac.uk/interpro/download/) tool. It has a github [repository](https://github.com/ebi-pf-team/interproscan) but for more information on downloading, installing and running it please see the [wiki](https://github.com/ebi-pf-team/interproscan/wiki) page.
   
-   ### BLAST
-    
+   ### BLAST example
+ 
+Create a custom database from a multi-FASTA file of sequences:
+
+      makeblastdb –in mydb.fsa –dbtype nucl –parse_seqids	 
+      
+A BLAST search against a database requires at least a –query and –db option:
+
+      blastn –db nt –query nt.fsa –out results.out  
+ 
    ### InterProScan (GO, KEGG, domains)
     
     
