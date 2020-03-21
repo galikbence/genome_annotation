@@ -320,21 +320,21 @@ Once you have uncompressed your download, you can run InterProScan directly from
 
 Available analyses:
 
-- TIGRFAM (XX.X) : TIGRFAMs are protein families based on Hidden Markov Models or HMMs
-- SFLD (X.X) : SFLDs are protein families based on Hidden Markov Models or HMMs
-- ProDom (XXXX.X) : ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database.
-- Hamap (XXXXXX.XX) : High-quality Automated and Manual Annotation of Microbial Proteomes
-- SMART (X.X) : SMART allows the identification and analysis of domain architectures based on Hidden Markov Models or HMMs
-- CDD (X.XX) : Prediction of CDD domains in Proteins
-- ProSiteProfiles (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
-- ProSitePatterns (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
-- SUPERFAMILY (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.
-- PRINTS (XX.X) : A fingerprint is a group of conserved motifs used to characterise a protein family
-- PANTHER (X.X) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to - - Gene3D (X.X.X) : Structural assignment for whole genes and genomes using the CATH domain structure database
-- PIRSF (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
-- Pfam (XX.X) : A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs)
-- Coils (X.X) : Prediction of Coiled Coil Regions in Proteins
-- MobiDBLite (X.X) : Prediction of disordered domains Regions in Proteins
+- __TIGRFAM__ (XX.X) : TIGRFAMs are protein families based on Hidden Markov Models or HMMs
+- __SFLD__ (X.X) : SFLDs are protein families based on Hidden Markov Models or HMMs
+- __ProDom__ (XXXX.X) : ProDom is a comprehensive set of protein domain families automatically generated from the UniProt Knowledge Database.
+- __Hamap__ (XXXXXX.XX) : High-quality Automated and Manual Annotation of Microbial Proteomes
+- __SMART__ (X.X) : SMART allows the identification and analysis of domain architectures based on Hidden Markov Models or HMMs
+- __CDD__ (X.XX) : Prediction of CDD domains in Proteins
+- __ProSiteProfiles__ (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
+- __ProSitePatterns__ (XX.XXX) : PROSITE consists of documentation entries describing protein domains, families and functional sites as well as associated patterns and profiles to identify them
+- __SUPERFAMILY__ (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.
+- __PRINTS__ (XX.X) : A fingerprint is a group of conserved motifs used to characterise a protein family
+- __PANTHER__ (X.X) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to - - Gene3D (X.X.X) : Structural assignment for whole genes and genomes using the CATH domain structure database
+- __PIRS__F (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
+- __Pfam__ (XX.X) : A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs)
+- __Coils__ (X.X) : Prediction of Coiled Coil Regions in Proteins
+- __MobiDBLite__ (X.X) : Prediction of disordered domains Regions in Proteins
 
 Aslo, we swithc on the 
 
