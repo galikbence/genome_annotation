@@ -356,6 +356,7 @@ Available analyses:
 Also, we switch on the GO and pathway annotation. For further analyses or making summary of the results we can use the `TSV` and `GFF` outputs. For better interpretation use the `HTML` output.
 
       #Example
+      
        interproscan.sh --output-dir <OUTPUT-DIR> --output-file-base <OUTPUT-FILE-BASE> --formats GFF,TSV,HTML --goterms --iprlookup --pathways --seqtype protein --input <INPUT-FILE-PATH>
     
  
