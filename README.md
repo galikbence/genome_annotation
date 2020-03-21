@@ -331,7 +331,7 @@ Available analyses:
 - __SUPERFAMILY__ (X.XX) : SUPERFAMILY is a database of structural and functional annotation for all proteins and genomes.
 - __PRINTS__ (XX.X) : A fingerprint is a group of conserved motifs used to characterise a protein family
 - __PANTHER__ (X.X) : The PANTHER (Protein ANalysis THrough Evolutionary Relationships) Classification System is a unique resource that classifies genes by their functions, using published scientific experimental evidence and evolutionary relationships to - - Gene3D (X.X.X) : Structural assignment for whole genes and genomes using the CATH domain structure database
-- __PIRS__F (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
+- __PIRSF__ (X.XX) : The PIRSF concept is being used as a guiding principle to provide comprehensive and non-overlapping clustering of UniProtKB sequences into a hierarchical order to reflect their evolutionary relationships.
 - __Pfam__ (XX.X) : A large collection of protein families, each represented by multiple sequence alignments and hidden Markov models (HMMs)
 - __Coils__ (X.X) : Prediction of Coiled Coil Regions in Proteins
 - __MobiDBLite__ (X.X) : Prediction of disordered domains Regions in Proteins
