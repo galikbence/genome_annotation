@@ -4,7 +4,7 @@ Workflow for eukaryotic genome annotation based on external evidences using [AUG
 
    ![workflow](https://user-images.githubusercontent.com/47104867/77142207-ac294c80-6a7f-11ea-8de6-6667d8919472.png)
 
-__Figure 1.__ Genome annotation workflow.
+__Figure.__ Genome annotation workflow.
 #
 
 The workflow contains the following steps:
@@ -23,15 +23,15 @@ The workflow contains the following steps:
   
   We assume you already sequenced and assembled your genome.
   
-   In order to maximize the genome annotation efficiency you should collect such data that can support a gene model. For example __protein__ and __transcript__ sequences from closely related species. It is highly recommended to download these datasets from reliable source!!! The best if you have __RNA-seq__ data directly from the species of interest. You can assemble the transcripts using the [__Trinity__](https://github.com/trinityrnaseq/trinityrnaseq/wiki) transcriptome assembly tool (either applying the genome-guided method for better results) and annotate the transcripts running the [__Trinotate__](https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinotate-Functional-Annotation) pipeline.
+   In order to maximize the genome annotation efficiency you should collect such data that can support gene models. For example __protein__ and __transcript__ sequences from closely related species. It is highly recommended to download these datasets from reliable source!!! The best if you have __RNA-seq__ data directly from your species of interest. You can assemble the transcripts using the [__Trinity__](https://github.com/trinityrnaseq/trinityrnaseq/wiki) transcriptome assembly tool (either applying the genome-guided method for better results) and annotate them running the [__Trinotate__](https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinotate-Functional-Annotation) pipeline.
    
-   In the next steps we will use the collected/generated data to build gene models for more accurate gene prediction. 
+   In the next steps we will show how to use the collected/generated data to build gene models for more accurate gene prediction. 
    
    In this workflow, we mainly focus on how to integrate data generated with short read sequencing platforms. Also, you can include evidences, specially whole length transcripts, that were generated using long read sequencing technologies (PacBio, MinION). 
 
   ## 2. Preparing gene models and other evidences
   
-  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). Also we will prepare other evidences.
+  In this section we will train AUGUSTUS for another species by the following [tutorial](https://vcru.wisc.edu/simonlab/bioinformatics/programs/augustus/docs/tutorial2015/training.html). Also, we will prepare other type of evidences too.
   
   __Retraining AUGUSTUS__
   
@@ -50,7 +50,7 @@ The workflow contains the following steps:
      
      You can find more detailed information in the training manual.
   
-  Also, we should prepare hints that the gene prediction tool can incorporate. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step. You can find more detailed information reading the AUGUSTUS [tutorial](https://fossies.org/linux/augustus/docs/tutorial/prediction.html#prephints).
+  Also, we should prepare hints that the gene prediction tool can incorporate to the analysis. It  will change the likelihood of gene structures candidates. Therefore, the algorithm will tend to predict gene structures that are in agreement with the hints. In the [readme about AUGUSTUS in the RGASP assessment](http://bioinf.uni-greifswald.de/augustus/binaries/readme.rnaseq.html) a detailed method is described that would produce the necessary inputs for this step. You can find more detailed information reading the AUGUSTUS [tutorial](https://fossies.org/linux/augustus/docs/tutorial/prediction.html#prephints).
   
  __Creating hints from RNA-Seq data__
       
@@ -83,13 +83,12 @@ The workflow contains the following steps:
      
         cat hints.cnda.gff hints.rnaseq.intron.gff hints.rnaseq.ep.gff > hints.gff
         
-      
-       
-We can prepare various gene models and hints file for our genome. We will use these files in Section 5.
+            
+We can prepare various gene models and hints file for our genome. Later, we will use these files in Section 5.
 
   ## 3. Repeat modelling & masking
   
-  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non protein coding elements. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker). 
+  Repeat modelling and masking repeats is a crucial step in the workflow. We can increase the gene prediction tool speed and efficiency by masking out regions that contains non-protein coding elements. One of the most popular tools is [__RepeatModeler__](https://github.com/Dfam-consortium/RepeatModeler) (including RepeatMasker). 
   
   The main steps are:
   
@@ -116,9 +115,9 @@ We can prepare various gene models and hints file for our genome. We will use th
     
        <RepeatMaskerPath>/RepeatMasker -small -gff --species <query species> --lib [filename for custom library] yourgenome.fasta
   
-  A few gene prediction tool can recognize masked regions if your genom sequence is upper case and the masked regios are in lower case. Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in gff fromat (use option `-gff`) in Section 6. 
+  A few gene prediction tool can recognize masked regions if your genom sequence is upper case and the masked regios are in lower case. Therefore we highly recommend to use `-small` option. Later, we will need the repeats positions information in `GFF` fromat (use option `-gff`) in Section 6. 
   
-  Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate FASTA files and you can mask these files parallel. At the end you can simply combine the masked FASTA and GFF files into one.
+  Eukaryotic genomes can be huge and repeat masking can take a lot of time (also memory). If the `-pa(rallel)` option is not working you can speed up this step by splitting up your genome into separate `FASTA` files and you can mask these files parallel. At the end you can simply combine the masked `FASTA` and `GFF` files into one.
 
   ## 4. Predicting tRNAs
   
@@ -126,18 +125,22 @@ We can prepare various gene models and hints file for our genome. We will use th
   
   Simple usage (see more options in the [manual](https://github.com/biopro/genix/blob/master/bin/tRNAscan-SE/MANUAL)):
   
+     #Example 
+     
       tRNAscan-SE [-options] <FASTA file(s)>
    
   ## 5. Predicting protein coding genes
   
-  This is the core part of the workflow. We will use an **evidence driven _ab initio_ gene prediction approach** running several gene predictor tools. Since we want to predict thousand of protein coding genes we automatize the process but we don't have time to refine all gene models by hand. Therefore, we will use more than one tool and in the next section we will combine these results. Also, each algorthim has it's advandage. 
+  This is the core part of the workflow. We will use an **evidence driven _ab initio_ gene prediction approach** by running several gene predictor tools with various parameters. Since we want to predict thousand of protein coding genes we automatize the process but we don't have time to refine all gene models by hand. We will use more than one tool (each algorthim has it's advandage.) and in the next section we will combine these results. 
   
   We will run the following algorithms:
 
    ### GeneMark-ES
    
- New genomes can be analyzed by [GeneMark-ES](http://exon.gatech.edu/GeneMark/) applying un/supervised self-training which is an important feature of the algorithm. Also, it can take external evidences (RNA or protein) mapped to genome. So, we can use the previously prepared files (see Section 2.). We can run the `gmes_petap.pl` perl script to do the trainig and prediction steps in one. See the [documentation](https://wiki.gacrc.uga.edu/wiki/GeneMarkES-Teaching) for more information.
+ New genomes can be analyzed by [GeneMark-ES](http://exon.gatech.edu/GeneMark/) applying (un)supervised self-training which is an important feature of the algorithm. Also, it can take external evidences (RNA or protein) mapped to genome. So, we can use the previously prepared files (see Section 2.). We can run the `gmes_petap.pl` perl script to do the trainig and prediction steps in one. See the [documentation](https://wiki.gacrc.uga.edu/wiki/GeneMarkES-Teaching) for more information.
    
+        #Example
+        
          gmes_petap.pl --soft_mask --ES --evidence hints.gff --cores <number of cores> --sequence genome_of_interest.fasta
          
   The ouput is a GTF file. However, the program can predict incomplete genes but we are not interesed in these gene models. We can filter out using the `filter_genemark.R` script that you can find in the [repository](https://github.com/galikbence/genome_annotation/tree/master/scripts). Next we should convert GTF into GFF using [gffread](https://github.com/gpertea/gffread).
@@ -146,25 +149,25 @@ We can prepare various gene models and hints file for our genome. We will use th
 
    ### AUGUSTUS
 
-AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on web server or run locally. It has 2 mandatory arguments. The query file and the species. You can find more details about how to run the tool in the [manual](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/RUNNING-AUGUSTUS.md).
+AUGUSTUS is a program that predicts genes in eukaryotic genomic sequences. It can be run on a web server or locally. It has 2 mandatory arguments, the query file and the species. You can find more details about how to run the tool in the [manual](https://github.com/Gaius-Augustus/Augustus/blob/master/docs/RUNNING-AUGUSTUS.md).
 
-You can run AUGUSTUS several times using the basic gene model, the gene model of the closest related species and the gene model with hints that we prepared in Section 2.
+You can run AUGUSTUS several times using the combinations of the generic gene model, the gene model of the closest related species, retrained new species with hints that we prepared in Section 2.
 
 Exmple runs (each case we will predict only complete genes on both strands):
 
-      #Run 1
+      #Run 1 - using only the gene model of the closes related species
        
        augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --outfile=[out_file] genome_of_interest.fasta
        
-      #Run 2
+      #Run 2 - using the gene model of the closes related species with hints
        
        augustus --strand=both --genemodel=complete --species=[related_speices] --gff3=on --codingseq=on --hintsfile=hints.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
        
-      #Run 3
+      #Run 3 - using the generic gene model with hints
        
        augustus --strand=both --genemodel=complete --species=generic --gff3=on --codingseq=on --hintsfile=hints.E.gff --extrinsicCfgFile=extrinsic.ME.cfg --outfile=[out_file] genome_of_interest.fasta
        
-At the end of these analyses we will use the `GFF` files from each gene prediction run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amongst the different runs.
+At the end of these analyses we will use the `GFF` files from each run (GeneMark-ES and AUGUSTUS). You may have to uniform the `GFF` file format amongst the different runs.
 
   ## 6. Combining gene models
   
@@ -190,7 +193,7 @@ The weights can be configured manually!
       
        cat prediction_1.gff prediction_2.gff prediction_3.gff prediction_N.gff > gene_predictions.gff
       
-   If the separate `GFF` files contains headers (lines statring whit "#") you sould delete them. Other important thing is the __source__ column (the 2nd one) of `GFF` files should be __unique__ corresponding to each run.
+   If the separate `GFF` files contains headers (lines statring whit "#") you sould delete them. Other important thing is the __source__ column (the 2nd one) of `GFF` files which should be __unique__ corresponding to each run.
    
        #Example GFF files
        
@@ -199,14 +202,18 @@ The weights can be configured manually!
         Scaffold2	AUGUSTUS_3	gene	7345	13968	0.07	-	.	ID=g1
         Scaffold2	GeneMark.hmm	gene	7345	7746	1	-	.	ID=g1
    
+   Here, the gene IDs are not relevant because the tool will use the coordintes to find overlaps between different models.
+   
    #### 2. Alingments for evidences
    
-   We can prepare cDNA (assembled transcripts from RNA-seq data) alignments using [GMAP/GSNAP](https://github.com/juliangehring/GMAP-GSNAP)
+   We can prepare cDNA (assembled transcripts from RNA-seq data) alignments using [GMAP/GSNAP](https://github.com/juliangehring/GMAP-GSNAP). We can do it in two simple steps:
    
         #Creating genome index
+        
          gmap_build -d <genome> [-k <kmer size>] <fasta_files...>
         
         #Mapping transcripts to the genome
+        
          gmap -d <genome> -B 5 -t 10 -f 3 transcripts.fasta
          
  Rename the output file as `cdna.gff`!
@@ -214,9 +221,11 @@ The weights can be configured manually!
    Also, we can use protein based evidences generated with [Exonerate](https://github.com/nathanweeks/exonerate) and [Scipio](https://www.webscipio.org).
    
          #Exonerate example
+         
           exonerate --model protein2genome query_proteins.fasta target_genome.fasta
           
          #Scipio example
+         
           scipio.pl [<options>] <target genome> <query protein>
 
 See more option in the manuals ([Exonerate](https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate-user-guide), [Scipio](https://www.webscipio.org/help/scipio)).
@@ -239,7 +248,7 @@ The class parameter can be one of the following:
    - PROTEIN
    - TRANSCRIPT
    
-These are the only input types accepted by EVM currently. An example weight file looks like:
+These are the only input types accepted by EVM. An example weights file looks like:
 
          TRANSCRIPT	GMAP	10
          PROTEIN	exonerate	5
@@ -251,11 +260,11 @@ These are the only input types accepted by EVM currently. An example weight file
    
    ### Running EVM
    
-We have all the necessary inputs for running EVidenceModeler. 
+Now, we have all the necessary inputs for running EVidenceModeler. 
 
 The main steps are:
 
-- Partitioning the Inputs
+- Partitioning the Inputs - EVM will split the input dataset based on the contigs/scaffolds
 
       perl $EVM_HOME/EvmUtils/partition_EVM_inputs.pl --genome sotfmasked_genome.fasta \
            --gene_predictions gene_predictions.gff --protein_alignments proteins.gff \
@@ -263,7 +272,7 @@ The main steps are:
            --repeats repeats.gff \
            --segmentSize 100000 --overlapSize 10000 --partition_listing partitions_list.out
 
- - Generating the EVM Command Set
+ - Generating the EVM Command Set (one command for one contig/scaffold)
       
        perl ${EVM_HOME}/EvmUtils/write_EVM_commands.pl --genome sotfmasked_genome.fasta --weights weights.txt \
             --gene_predictions gene_predictions.gff --protein_alignments proteins.gff \
@@ -288,21 +297,23 @@ The main steps are:
 
 Or you can use the [runEVidenceModeler.sh](https://github.com/galikbence/genome_annotation/blob/master/scripts/runEvidenceModeler.sh) script. Before running it you may have change it a little bit!
 
-At the end of this process we can filter the results based on the number of evidences that support a gene model. For example we get rid of those models that have only 1 _ab initio_ evidence. You can use the [filter_evm_run.R]() script with basic filtering options. The input are the `evm.out.all.gff` and `evm.all.out` files.
+At the end of this process we can filter the results based on the number of evidences that support a gene model. For example we get rid of those models that have only 1 _ab initio_ evidence per feature (exon/intron). You can use the [filter_evm_run.R]() script with basic filtering options. The input are the `evm.out.all.gff` and `evm.all.out` files.
   
-Finally we will extract the CDS and protein sequences that we will use in the annotation step.
+Finally we will extract the CDS and protein sequences that we will use in the annotation step (Section 7.).
 
 In this workflow we don't care about the alternative splicing events. However, it can add more to the annotation.
 
   ## 7. Annotating protein coding genes
   
- Now we have all the protein coding genes from Section 6. We will annotate structural and functional features of the coding sequences (or you can use the proteins). One of the most popular approach is to annotate the gene of interes based on similarity unsing [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi). If you have to  align thousands of sequnces you can use the local version and you can prepare a custom database by colleting all __well annotated__ proteins/transcripts from closely related species or you can use the [UniProtKB/Swiss-Prot](https://www.uniprot.org/statistics/Swiss-Prot) database. You can align DNA to DNA or PROTEIN to DNA.
+ Now we have all the protein coding genes from Section 6. We will annotate structural and functional features of the coding sequences/proteins. 
+ 
+ One of the most popular approach is to annotate the gene of interes based on similarity unsing [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi). If you have to align thousands of sequnces you can use the local version and you can prepare a custom database by colleting all __well annotated__ proteins/transcripts from closely related species or you can use the [UniProtKB/Swiss-Prot](https://www.uniprot.org/statistics/Swiss-Prot) database. You can align DNA to DNA or PROTEIN to DNA.
  
  See more in the BLAST [documentation](https://www.ncbi.nlm.nih.gov/books/NBK279680/) how to use the command line version.
  
- However, BALST has good balance of sensitivity and speed, it is flexible and reliable BUT the quality of the results depends on the database. It can happen there are a lot of unannotated and hypothetical elements in your databese. Also, if your databes is good you will have a lot of elemets that have poor matches etc... 
+ However, BALST has good balance of sensitivity and speed, it is flexible and reliable BUT the quality of the results depends on your database. It can happen there are a lot of unannotated and hypothetical elements in your databese. Also, if your databes is good you may have a lot of elemets that have poor matches etc...
  
- Therefore, we highly recommend to scan your sequence for matches against the protein signature databases. For this porupse [InterPro](https://www.ebi.ac.uk/interpro/) provides functional analysis of proteins by classifying them into families and predicting domains and important sites. You can do quick [search](https://www.ebi.ac.uk/interpro/search/sequence/) with limited number of amino acids (40,000). If you want to analyze thousands of sequences you can download the [InterProScan](https://www.ebi.ac.uk/interpro/download/) tool. It has a github [repository](https://github.com/ebi-pf-team/interproscan) but for more information on downloading, installing and running it please see the [wiki](https://github.com/ebi-pf-team/interproscan/wiki) page.
+ Therefore, we highly recommend to scan your sequences for matches against a protein signature databases. For this purpose [InterPro](https://www.ebi.ac.uk/interpro/) provides functional analysis of proteins by classifying them into families and predicting domains and important sites. You can do quick [search](https://www.ebi.ac.uk/interpro/search/sequence/) with limited number of amino acids (40,000). If you want to analyze thousands of sequences you can download the [InterProScan](https://www.ebi.ac.uk/interpro/download/) tool. It has a github [repository](https://github.com/ebi-pf-team/interproscan) but for more information on downloading, installing and running it please see the [wiki](https://github.com/ebi-pf-team/interproscan/wiki) page.
  
  Finally, we can gain more information by reconstructing KEGG pathways using [KAAS](https://www.genome.jp/kegg/kaas/) or [BlastKOALA](https://www.kegg.jp/blastkoala/). Than mapping KO elements to general pathways or comparing it to the closest realted species using [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html) Bioconductor package or other tools.
   
@@ -310,15 +321,19 @@ In this workflow we don't care about the alternative splicing events. However, i
  
 Create a custom database from a multi-FASTA file of sequences:
 
+     #Example
+     
       makeblastdb –in mydb.fsa –dbtype nucl –parse_seqids	 
       
 A BLAST search against a database requires at least a –query and –db option:
 
+     #Example
+      
       blastn –db nt –query nt.fsa –out results.out  
  
    ### InterProScan example
    
-Once you have uncompressed your download, you can run InterProScan directly from the command line. In the following example we will use the protein sequences for the analysis. If the `--applications <ANALYSES>` option is not set, ALL analyses will be run.
+You can run InterProScan directly from the command line (be sure you database is updated). In the following example we will use the protein sequences for the analysis. If the `--applications <ANALYSES>` option is not set, ALL analyses will be run.
 
 Available analyses:
 
@@ -338,7 +353,7 @@ Available analyses:
 - __Coils__ (X.X) : Prediction of Coiled Coil Regions in Proteins
 - __MobiDBLite__ (X.X) : Prediction of disordered domains Regions in Proteins
 
-Aslo, we switch on the GO and pathway annotation. For further analyses or making summary of the results we can use the TSV and GFF outputs.       
+Also, we switch on the GO and pathway annotation. For further analyses or making summary of the results we can use the `TSV` and `GFF` outputs. For better interpretation use the `HTML` output.
 
       #Example
        interproscan.sh --output-dir <OUTPUT-DIR> --output-file-base <OUTPUT-FILE-BASE> --formats GFF,TSV,HTML --goterms --iprlookup --pathways --seqtype protein --input <INPUT-FILE-PATH>
