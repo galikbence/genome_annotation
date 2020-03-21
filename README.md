@@ -298,9 +298,9 @@ In this workflow we don't care about the alternative splicing events. However, i
   
  Now we have all the protein coding genes from Section 6. We will annotate structural and functional features of the coding sequences (or you can use the proteins). One of the most popular approach is to annotate the gene of interes based on similarity unsing [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi). If you have to  align thousands of sequnces you can use the local version and you can prepare a custom database by colleting all __well annotated__ proteins/transcripts from closely related species or you can use the [UniProtKB/Swiss-Prot](https://www.uniprot.org/statistics/Swiss-Prot) database. You can align DNA to DNA or PROTEIN to DNA.
  
- However, BALST has good balance of sensitivity and speed, it is flexible and reliable BUT the quality of the results depends on the database. It can happen there are a lot of unannotated and hypothetical elements in your databese. Also, if your databes is good you will have a lot of elemets that have poor match etc... 
+ However, BALST has good balance of sensitivity and speed, it is flexible and reliable BUT the quality of the results depends on the database. It can happen there are a lot of unannotated and hypothetical elements in your databese. Also, if your databes is good you will have a lot of elemets that have poor matches etc... 
  
- Therefore, 
+ Therefore, we highly recommend to scan your sequence for matches against the protein signature databases. For this porupse [InterPro](https://www.ebi.ac.uk/interpro/) provides functional analysis of proteins by classifying them into families and predicting domains and important sites. You can do quick [search](https://www.ebi.ac.uk/interpro/search/sequence/) with limited number of amino acids (40,000). If you want to analyze thousands of sequences you can download the [InterProScan](https://www.ebi.ac.uk/interpro/download/) tool. It has a github [repository](https://github.com/ebi-pf-team/interproscan) but for more information on downloading, installing and running it please see the [wiki](https://github.com/ebi-pf-team/interproscan/wiki) page.
   
    ### BLAST
     
