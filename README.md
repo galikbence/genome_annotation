@@ -292,7 +292,11 @@ At the end of this process we can filter the results based on the number of evid
   
 Finally we will extract the CDS and protein sequences that we will use in the annotation step.
 
+In this workflow we don't care about the alternative splicing events. However, this can add more to the annotation.
+
   ## 7. Annotating protein coding genes
+  
+ Now we have all the protein coding genes 
   
     ### BLAST
     
