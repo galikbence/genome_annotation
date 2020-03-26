@@ -18,7 +18,28 @@ The workflow contains the following steps:
   7. Annotating protein coding genes
   
  #
- 
+
+The following tools/packages/databases are mentioned/used in the workflow:
+- [AUGUSTUS](https://github.com/Gaius-Augustus/Augustus)
+- [GeneMark-ES](http://exon.gatech.edu/GeneMark/)
+- [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
+- [Trinotate](https://github.com/griffithlab/rnaseq_tutorial/wiki/Trinotate-Functional-Annotation)
+- [RepeatModeler/RepeatMasker](https://github.com/Dfam-consortium/RepeatModeler)
+- [tRNAscan-SE](https://github.com/biopro/genix/tree/master/bin/tRNAscan-SE)
+- [EVidenceModeler](https://evidencemodeler.github.io)
+- [gffread](https://github.com/gpertea/gffread)
+- [GMAP/GSNAP](https://github.com/juliangehring/GMAP-GSNAP)
+- [Exonerate](https://github.com/nathanweeks/exonerate)
+- [Scipio](https://www.webscipio.org)
+- [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+- [InterPro](https://www.ebi.ac.uk/interpro/) 
+- [InterProScan](https://www.ebi.ac.uk/interpro/download/)
+- [KAAS](https://www.genome.jp/kegg/kaas/)
+- [BlastKOALA](https://www.kegg.jp/blastkoala/)
+- [KEGGREST](https://bioconductor.org/packages/release/bioc/html/KEGGREST.html)
+- [UniProtKB/Swiss-Prot](https://www.uniprot.org/statistics/Swiss-Prot)
+
+
   ## 1. Collecting external evidences
   
   We assume you already sequenced and assembled your genome.
