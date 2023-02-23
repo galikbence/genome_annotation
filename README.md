@@ -77,7 +77,7 @@ The following tools/packages/databases are mentioned/used in the workflow:
  __Creating hints from RNA-Seq data__
       
       Massive amounts of short transcriptome reads first need to be aligned to the genome.  We will assume that we have
-      already aligned the reads to the genome and that we have WIG and GFF files.
+      already aligned the reads to the genome and we have the WIG and GFF files.
       
       1. The file coverage.wig contains a coverage graph, that contains for each base in the genome and the number of reads
          alignments that cover the position.
