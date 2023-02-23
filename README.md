@@ -77,7 +77,17 @@ The following tools/packages/databases are mentioned/used in the workflow:
  __Creating hints from RNA-Seq data__
       
       Massive amounts of short transcriptome reads first need to be aligned to the genome.  We will assume that we have
-      already aligned the reads to the genome and we have the WIG and GFF files.
+      already aligned the reads to the genome and we have the WIG and GFF files. If you do just run the following STAR code:
+      
+      #build genome index
+      STAR --runThreadN 4 --runMode genomeGenerate --genomeDir gindex --genomeFastaFiles genome.fasta
+      
+      #align reads
+      STAR --runThreadN 4 --genomeDir gindex --readFilesIn rnaseq1.fq rnaseq2.fq --alignIntronMax 100000 \
+      --outSAMtype BAM  SortedByCoordinate --outWigType wiggle --outWigStrand Unstranded
+      
+      These commands will create a file Aligned.sortedByCoord.out.bam with the alignments and a file Signal.Unique.str1.out.wig with 
+      coverage per base information, among others. 
       
       1. The file coverage.wig contains a coverage graph, that contains for each base in the genome and the number of reads
          alignments that cover the position.
